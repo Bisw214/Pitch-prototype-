@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Calendar - Connect id</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e2d47, #283e5c);
+      color: #fff;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .main-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .main-header h1 {
+      font-size: 3rem;
+      color: #4a90e2;
+    }
+
+    .main-header p {
+      font-size: 1.2rem;
+      color: #cfd8dc;
+    }
+
+    .filter-section {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    #department-filter {
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: none;
+      background-color: #4a90e2;
+      color: white;
+      cursor: pointer;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .calendar-day {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .calendar-day:hover {
+      background-color: #4a90e2;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .calendar-day h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: #90caf9;
+    }
+
+    .event {
+      background-color: #1abc9c;
+      padding: 8px;
+      border-radius: 12px;
+      margin-top: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.9rem;
+    }
+
+    .event:hover {
+      background-color: #16a085;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background: #2e3c55;
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      color: white;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .modal-content h2 {
+      color: #4db6ac;
+      margin-bottom: 10px;
+    }
+
+    .modal-content p {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <h1>📅 Event Calendar</h1>
+    <p>Select your department to view tailored upcoming events</p>
+    <h5>(28 days calander)</h5>
+  </header>
+
+  <div class="filter-section">
+    <select id="department-filter">
+      <option value="all">All Departments</option>
+      <option value="cultural">Cultural</option>
+      <option value="technical">Technical</option>
+      <option value="sports">Sports</option>
+    </select>
+  </div>
+
+  <section class="calendar-grid" id="calendar-grid"></section>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">×</span>
+      <h2 id="event-title"></h2>
+      <p id="event-description"></p>
+      <p><strong>Register:</strong> <span id="event-registration"></span></p>
+      <p><strong>Feedback:</strong> <span id="event-feedback"></span></p>
+    </div>
+  </div>
+
+  <script>
+    const calendarGrid = document.getElementById("calendar-grid");
+    const departmentFilter = document.getElementById("department-filter");
+
+    const events = [
+      {
+        title: "Cultural Fest Inauguration",
+        date: "2025-07-27",
+        department: "cultural",
+        description: "Kickstart the cultural season with dance, music and food!",
+        registration: "cultural.paruluniversity.ac.in/register",
+        feedback: "Rated 4.8★ last year!"
+      },
+      {
+        title: "Hackathon 2025",
+        date: "2025-07-30",
+        department: "technical",
+        description: "24-hour code sprint on AI & IoT",
+        registration: "techclub.paruluniversity.ac.in",
+        feedback: "Participants loved the real-world challenges!"
+      },
+      {
+        title: "Annual Football Cup",
+        date: "2025-08-03",
+        department: "sports",
+        description: "Cheer your team in the finals of the football championship!",
+        registration: "sports.paruluniversity.ac.in",
+        feedback: "Massive turnout last year."
+      },
+      {
+        title: "Cultural Dance Workshop",
+        date: "2025-08-02",
+        department: "cultural",
+        description: "Free dance workshop by the Rhythm Crew.",
+        registration: "cultural.paruluniversity.ac.in/workshop",
+        feedback: "Over 300 participants joined last year."
+      },
+      {
+        title: "AI Seminar",
+        date: "2025-08-05",
+        department: "technical",
+        description: "Guest lecture by Google AI Research Scientist.",
+        registration: "ai.paruluniversity.ac.in/register",
+        feedback: "Highly rated event in 2024."
+      },
+      {
+        title: "Chess Tournament",
+        date: "2025-08-07",
+        department: "sports",
+        description: "Open to all departments. Prizes worth ₹10,000!",
+        registration: "sports.paruluniversity.ac.in/chess",
+        feedback: "Fun and competitive!"
+      }
+    ];
+
+    function renderCalendar() {
+      calendarGrid.innerHTML = '';
+      const selectedDept = departmentFilter.value;
+      const startDate = new Date("2025-07-26");
+
+      for (let i = 0; i < 28; i++) {
+        const date = new Date(startDate);
+        date.setDate(startDate.getDate() + i);
+        const dateStr = date.toISOString().split("T")[0];
+
+        const dayEvents = events.filter(ev => 
+          ev.date === dateStr && 
+          (selectedDept === "all" || ev.department === selectedDept)
+        );
+
+        const dayEl = document.createElement("div");
+        dayEl.className = "calendar-day";
+        dayEl.innerHTML = `<h3>${date.toDateString()}</h3>`;
+
+        dayEvents.forEach(ev => {
+          const evDiv = document.createElement("div");
+          evDiv.className = "event";
+          evDiv.innerText = ev.title;
+          evDiv.onclick = () => showModal(ev);
+          dayEl.appendChild(evDiv);
+        });
+
+        calendarGrid.appendChild(dayEl);
+      }
+    }
+
+    function showModal(eventData) {
+      document.getElementById("event-title").innerText = eventData.title;
+      document.getElementById("event-description").innerText = eventData.description;
+      document.getElementById("event-registration").innerText = eventData.registration;
+      document.getElementById("event-feedback").innerText = eventData.feedback;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    departmentFilter.addEventListener("change", renderCalendar);
+    renderCalendar();
+  </script>
+</body>
+</html>

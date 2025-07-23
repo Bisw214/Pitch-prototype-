@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+  --primary: #0a66c2;
+  --bg-light: #f5f7fa;
+  --text: #1c1e21;
+  --radius: 0.5rem;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  background: var(--bg-light);
+  color: var(--text);
+}
+
+.departments {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* More grey + transparent */
+.dept-card {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  background: rgba(80, 88, 104, 0.22); /* grey, more transparent */
+  color: var(--text);
+  min-height: 320px;
+  align-items: center;
+}
+
+/* Ratio: cultural and sports (2), entrepreneur (4) */
+#cultural, #sports {
+  flex-grow: 2;
+}
+#entrepreneur {
+  flex-grow: 4;
+}
+
+.profile-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 88px;
+  height: 88px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background: rgba(190, 192, 198, 0.40); /* pale grey bg */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.profile-pic img {
+  width: 78px;
+  height: 78px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.dept-card h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: var(--primary);
+  text-align: center;
+}
+.dept-card p {
+  margin: 0.5rem 0 2rem 0;
+  line-height: 1.5;
+  text-align: center;
+}
+.dept-card button {
+  margin-top: auto;
+  padding: 0.6rem 1.2rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.dept-card button:hover,
+.dept-card button:focus {
+  background: #084c94;
+}
+
+  </style>
+</head>
+<body>
+  <section class="departments">
+    <form class="dept-card" id="cultural">
+      <div class="profile-pic">
+        <img src="cultural-profile.png" alt="Cultural Dept Profile">
+      </div>
+      <h2>Cultural Department</h2>
+      <p>Promotes cultural awareness through events, festivals, and creative workshops.</p>
+      <button type="submit" formaction="cultural.html">Learn More</button>
+    </form>
+  
+    <form class="dept-card" id="sports">
+      <div class="profile-pic">
+        <img src="sports-profile.png" alt="Sports Dept Profile">
+      </div>
+      <h2>Sports Department</h2>
+      <p>Organizes athletics, intramurals, and fitness programs that nurture teamwork and well-being.</p>
+      <button type="submit" formaction="sports.html">Learn More</button>
+    </form>
+  
+    <form class="dept-card" id="entrepreneur">
+      <div class="profile-pic">
+        <img src="entrepreneur-profile.png" alt="Entrepreneur Dept Profile">
+      </div>
+      <h2>Entrepreneur Department (PIERC)</h2>
+      <p>Empowers student innovators with mentoring, resources, and startup incubator support.</p>
+      <button type="submit" formaction="entrepreneur.html">Learn More</button>
+    </form>
+  </section>
+  
+</body>
+</html>

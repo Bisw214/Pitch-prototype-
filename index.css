@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  height: 100vh;
+  padding: 0;
+  background-color:#f7feff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+ 
+}
+.content {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(173, 25, 25);
+}
+
+
+
+
+.app-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #273b58; 
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+ position: absolute;
+top: 1%;
+left: 2%;
+}
+.app-title span {
+  color: #4a90e2;
+}
+.login-form h2 {
+  font-family: Georgia;
+}
+.login-form {
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 2px solid #c6cacf; 
+padding: 20px;              
+border-radius: 10px;        
+background-color: #ffffff;  
+width: 300px;
+border-bottom-style: inset;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.login-form label {
+  color: #1b2a41;
+  font-size: 14px;
+}
+.login-form input {
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+} 
+.login-form button {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}  
+.login-form button:hover {
+  background-color: #3b7cc3; 
+}
+  .register-link {
+  text-align: center;
+  color: #888;
+  font-size: 13px;
+}
+ .register-link a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+.detail{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: small;
+  color: #1c4650;
+  position: absolute;
+  bottom: 2%;
+}
+.box {
+text-shadow:1px 1px 3px rgb(250, 250, 250);
+}
+.error-msg {
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  display: none;
+}

@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f7f9fb;
+    color: #1c1e21;
+    line-height: 1.6;
+  }
+  /* Make the video full-screen and behind content */
+  #bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  /* Centered text on top of video */
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    padding-top: 20vh;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  header.header {
+    background-color: #1e2d47;
+    color: #ffffff;
+    padding: 1.2rem 1rem;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* ensures it stays above other content */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  section {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  section h2 {
+    color: #0a66c2;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .about p,
+  .achievements p,
+  .team p,
+  .join p {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  
+  .highlights ul {
+    padding-left: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    padding: 1rem;
+  }
+  
+  .club-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  
+  .club-card {
+    background: #4a90e2;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background-color: #0a66c2;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #084c94;
+  }
+  
+  .footer {
+    background-color: #e9eef5;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    color: #444;
+  }
+
+
+  
