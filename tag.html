@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connect ID - Tag Selection</title>
+  <link rel="stylesheet" href="tag.css" />
+</head>
+<body class="tagbody">
+  <main class="centerscreen" role="main">
+    <h1 class="app-title"><span class="connect">Connect</span> <span class="id">ID</span></h1>
+
+    <form>
+      <h2 class="section-title">Select Tag</h2>
+
+      <section class="dropdown" id="career-dropdown" aria-expanded="false">
+        <button class="dropdown__header" type="button">
+          <span class="dropdown-label">Ambitious Tags</span>
+          <span class="dropdown__arrow"></span>
+        </button>
+        <div class="dropdown__content">
+          <input type="search" id="career-search" class="dropdown__search" placeholder="Search careers..." />
+          <ul class="tags-list" id="career-tags">
+            <li class="tag-list__item">Business</li>
+            <li class="tag-list__item">Computer Science Engineer</li>
+            <li class="tag-list__item">Robotics</li>
+            <li class="tag-list__item">Designer</li>
+            <li class="tag-list__item">Coder</li>
+            <li class="tag-list__item">Doctor</li>
+            <li class="tag-list__item">Lawyer</li>
+            <li class="tag-list__item">Architect</li>
+            <li class="tag-list__item">Artist</li>
+            <li class="tag-list__item">AI Engineer</li>
+            <li class="tag-list__item">Data Scientist</li>
+            <li class="tag-list__item">Mechanical Engineer</li>
+            <li class="tag-list__item">Civil Engineer</li>
+            <li class="tag-list__item">Psychologist</li>
+            <li class="tag-list__item">Entrepreneurship / Creativity</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="dropdown" id="hobbies-dropdown" aria-expanded="false">
+        <button class="dropdown__header" type="button">
+          <span class="dropdown-label">Hobbies</span>
+          <span class="dropdown__arrow"></span>
+        </button>
+        <div class="dropdown__content">
+          <input type="search" id="hobbies-search" class="dropdown__search" placeholder="Search hobbies..." />
+          <ul class="tags-list" id="hobbies-tags">
+            <li class="tag-list__item">Band / Music</li>
+            <li class="tag-list__item">Football</li>
+            <li class="tag-list__item">Dance</li>
+            <li class="tag-list__item">Photography</li>
+            <li class="tag-list__item">Gaming</li>
+            <li class="tag-list__item">Drawing</li>
+            <li class="tag-list__item">Cooking</li>
+            <li class="tag-list__item">Youtuber</li>
+            <li class="tag-list__item">Writing</li>
+            <li class="tag-list__item">Blogging</li>
+            <li class="tag-list__item">Swimming</li>
+            <li class="tag-list__item">Chess</li>
+            <li class="tag-list__item">Influencer</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="next-button-container">
+        <a href="homeSample.html" class="next-button">Submit</a>
+      </div>
+    </form>
+  </main>
+
+ 
+ 
+  <section class="departments">
+    
+    <form class="dept-card" id="cultural">
+      <div class="profile-pic">
+        <img src="cultural.png" alt="Cultural Dept Profile">
+      </div>
+      <h2>Cultural Department</h2>
+      <p>Promotes cultural awareness through events, festivals, and creative workshops.</p>
+      <button type="submit" formaction="culturaldep.html">Learn More</button>
+    </form>
+
+    <form class="dept-card" id="sports">
+      <div class="profile-pic">
+        <img src="sports.png" alt="Sports Dept Profile">
+      </div>
+      <h2>Sports Department</h2>
+      <p>Organizes athletics, intramurals, and fitness programs that nurture teamwork and well-being.</p>
+      <button type="submit" formaction="sports.html">Learn More</button>
+    </form>
+
+    <form class="dept-card" id="entrepreneur">
+      <div class="profile-pic">
+        <img src="pierc.png" alt="Entrepreneur Dept Profile">
+      </div>
+      <h2>Entrepreneur Department (PIERC)</h2>
+      <p>Empowers student innovators with mentoring, resources, and startup incubator support.</p>
+      <button type="submit" formaction="ent.html">Learn More</button>
+    </form>
+  </section>
+  <section class="trending-section">
+    <h2 class="trending-title">Trending Departments</h2>
+  </section>
+
+  <script>
+    function toggleDropdown(e) {
+      const section = e.currentTarget.closest('.dropdown');
+      const content = section.querySelector('.dropdown__content');
+      const expanded = section.getAttribute('aria-expanded') === 'true';
+      section.setAttribute('aria-expanded', !expanded);
+      e.currentTarget.setAttribute('aria-expanded', !expanded);
+      content.hidden = expanded;
+    }
+
+    function sortAndFilter(inputId, listId) {
+      const input = document.getElementById(inputId);
+      const list = document.getElementById(listId);
+      const items = Array.from(list.children);
+      const search = input.value.toLowerCase();
+
+      items.sort((a, b) => a.textContent.localeCompare(b.textContent));
+      items.forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(search) ? 'block' : 'none';
+        list.appendChild(item);
+      });
+    }
+
+    function handleTagClick(tagEl, type) {
+      const section = document.getElementById(`${type}-dropdown`);
+      const label = section.querySelector('.dropdown-label');
+      label.textContent = `#${tagEl.textContent}`;
+      section.setAttribute('aria-expanded', false);
+      section.querySelector('.dropdown__content').hidden = true;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.dropdown__header').forEach(header => header.addEventListener('click', toggleDropdown));
+      document.getElementById('career-search').addEventListener('input', () => sortAndFilter('career-search', 'career-tags'));
+      document.getElementById('hobbies-search').addEventListener('input', () => sortAndFilter('hobbies-search', 'hobbies-tags'));
+      document.querySelectorAll('#career-tags .tag-list__item').forEach(item => item.addEventListener('click', () => handleTagClick(item, 'career')));
+      document.querySelectorAll('#hobbies-tags .tag-list__item').forEach(item => item.addEventListener('click', () => handleTagClick(item, 'hobbies')));
+    });
+  </script>
+</body>
+</html>

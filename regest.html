@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join Department Activities</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #e8f5e9);
+      color: #1e2d47;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 95%;
+      max-width: 500px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #4a90e2;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #cfd8dc;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #4a90e2;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 0.9rem;
+      background-color: #4a90e2;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #357abf;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      text-align: center;
+      color: #555;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Join Department Activities</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="email">College Email</label>
+        <input type="email" id="email" name="email" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="year">Academic Year</label>
+        <select id="year" name="year" required>
+          <option value="">Select your year</option>
+          <option>1st Year</option>
+          <option>2nd Year</option>
+          <option>3rd Year</option>
+          <option>Final Year</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="branch">Branch/Department</label>
+        <input type="text" id="branch" name="branch" placeholder="e.g. Computer Engineering" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="reason">Why do you want to join?</label>
+        <textarea id="reason" name="reason" placeholder="Share your interest or motivation..." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="skills">Any relevant experience or skills?</label>
+        <textarea id="skills" name="skills" placeholder="Optional, but helps us know you better."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Registration</button>
+      <div class="note">We will contact you via email after review.</div>
+    </form>
+  </div>
+
+</body>
+</html>

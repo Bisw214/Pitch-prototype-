@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cultural Department - Connect ID</title>
+  <link rel="stylesheet" href="culturaldep.css" />
+</head>
+<body>
+
+    <video autoplay muted loop id="bg-video">
+        <source src="cult.mp4" type="video/mp4">
+      </video>
+
+
+
+  <header class="header">
+    <h1>Cultural Department</h1>
+    <p>Celebrating diversity, talent, and tradition across campus</p>
+  </header>
+<Form class="form">
+  <section class="about">
+    <h2>Our Mission</h2>
+    <p>To foster cultural creativity, inclusivity, and collaboration by organizing vibrant events, clubs, and fests that showcase student talent and heritage.</p>
+  </section>
+  <section class="about">
+    <h2>Our Mission</h2>
+    <p>To foster cultural creativity, inclusivity, and collaboration by organizing vibrant events, clubs, and fests that showcase student talent and heritage.</p>
+  </section>
+
+  <section class="highlights">
+    <h2>What We Do</h2>
+    <ul>
+      <li>Annual cultural festivals and inter-college fests</li>
+      <li>Workshops on dance, drama, and music</li>
+      <li>Competitions like debates, poetry, fashion shows</li>
+      <li>Art exhibitions and heritage awareness programs</li>
+    </ul>
+  </section>
+  
+
+  <section class="clubs">
+    <h2>Active Cultural Clubs</h2>
+    <div class="club-list">
+      <div class="club-card">Dramatics Club</div>
+      <div class="club-card">Classical Music Club</div>
+      <div class="club-card">Western Dance Society</div>
+      <div class="club-card">Fine Arts Circle</div>
+      <div class="club-card">Photography Club</div>
+    </div>
+  </section>
+
+  <section class="achievements">
+    <h2>Achievements</h2>
+    <p>🏆 Winner of the National All India Univerrsity AIU· <br/>Hosted Inter-University Fest 2023 with 5000+ students · <br/>Multiple zonal and national-level awards in dance & theatre</p>
+  </section>
+
+  <section class="team">
+    <h2>Meet the Team</h2>
+    <p><strong>Director:</strong> Dr. Manish Jhangra <br/>
+       <strong>Faculty Coordinator:</strong>MR. Farahan<br/>
+       <strong>Student President:</strong> Ms. Dimpi</p>
+  </section>
+
+  <section class="join">
+    <h2>How to Join</h2>
+    <p>Open to all students! Attend our orientation during the first two weeks or connect via your department CR. Sign-ups also open online before each semester.</p>
+    <a href="regest.html" class="btn">Join Now</a>
+  </section>
+</Form>
+  <footer class="footer">
+    <p>&copy; 2025 Connect ID · Cultural Department</p>
+  </footer>
+
+</body>
+<script>
+    const video = document.getElementById('bg-video');
+  
+    video.addEventListener('loadedmetadata', () => {
+      video.currentTime = 9;
+    });
+  </script>
+</html>

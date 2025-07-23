@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sports Department - Connect ID</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f9fb;
+      color: #1c1e21;
+      line-height: 1.6;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    header.header {
+      background-color: #1e2d47;
+      color: #ffffff;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 5.5rem auto 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section h2 {
+      color: #0a66c2;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .about p,
+    .achievements p,
+    .team p,
+    .join p {
+      background-color: #ffffff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    .highlights ul {
+      padding-left: 1.5rem;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      padding: 1rem;
+    }
+
+    .club-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .club-card {
+      background: #4a90e2;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background-color: #0a66c2;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #084c94;
+    }
+
+    .footer {
+      background-color: #e9eef5;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <video autoplay muted loop id="bg-video">
+    <source src="sports.mp4" type="video/mp4">
+  </video>
+
+  
+  <form class="form">
+    <section class="about">
+      <h2></h2>
+      <p></p>
+    </section>
+    <header class="header">
+        <h1>Sports Department</h1>
+        <p>Empowering students through fitness, teamwork, and discipline</p>
+      </header>
+      
+  <form class="form">
+    <section class="about">
+      <h2>Our Mission</h2>
+      <p>To promote a culture of physical fitness, sportsmanship, and team spirit through regular sporting events, training sessions, and inter-college tournaments.</p>
+    </section>
+
+    <section class="highlights">
+      <h2>What We Do</h2>
+      <ul>
+        <li>Organize annual Sports Week and inter-department competitions</li>
+        <li>Provide coaching and fitness sessions for students</li>
+        <li>Facilitate participation in university/state/national events</li>
+        <li>Host seminars on wellness, nutrition, and sports psychology</li>
+      </ul>
+    </section>
+
+    <section class="clubs">
+      <h2>Active Sports Clubs</h2>
+      <div class="club-list">
+        <div class="club-card">Cricket Club</div>
+        <div class="club-card">Football Club</div>
+        <div class="club-card">Basketball Team</div>
+        <div class="club-card">Athletics Group</div>
+        <div class="club-card">Table Tennis Society</div>
+      </div>
+    </section>
+
+    <section class="achievements">
+      <h2>Achievements</h2>
+      <p>🥇 State Champions in University Football League <br/>
+         🏆 Gold medal in 100m Relay (Zonal Meet 2024) <br/>
+         🥉 Participation in Khelo India Youth Games 2023</p>
+    </section>
+
+    <section class="team">
+      <h2>Meet the Team</h2>
+      <p><strong>Director:</strong> Dr. Ritu Kumar <br/>
+         <strong>Faculty Coordinator:</strong> Mr. Akash Mehta<br/>
+         <strong>Student Captain:</strong> Mr. Rohit Sharma</p>
+    </section>
+
+    <section class="join">
+      <h2>How to Join</h2>
+      <p>Interested in sports? Fill out our online form or meet your class CR. Registration opens every semester during orientation week.</p>
+      <a href="regest.html" class="btn">Join Now</a>
+    </section>
+  </form>
+
+  <footer class="footer">
+    <p>&copy; 2025 Connect ID · Sports Department</p>
+  </footer>
+
+ 
+
+</body>
+</html>
